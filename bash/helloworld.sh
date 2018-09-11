@@ -1,4 +1,4 @@
-#!/bin/#!/usr/bin/
+#!/usr/bin/
 
 echo "hello world"
 
