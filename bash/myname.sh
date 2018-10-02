@@ -1,10 +1,13 @@
 #!/bin/bash
 
 export MYNAME="Chris"
-mytitle="Dr"
+titles=("Lord" "Duke" "General" "Admiral" "Commander")
 today=$(date +%A)
 hostname=$(hostname)
 #echo $mytitle $MYNAME
 
-echo "Welcome to planet $hostname $mytitle $MYNAME"
-echo "Today is $today"
+welcomemessage="
+Welcome to planet $hostname ${titles[((RANDOM % ${#titles[@]}))]} $MYNAME
+Today is $today
+"
+echo $welcomemessage | cowsay -f dragon
