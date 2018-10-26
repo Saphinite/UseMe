@@ -9,6 +9,13 @@ sides=6
 count=2
 while [ $count -gt 0 ]; do #loop
   case $1 in
+    -h | --help ) #sets the help command
+      echo "Options : -c N or --count N sets the number of dice. -s N or --side N sets the sides of dice. Default is 2 Dice with 6 Sides"
+      echo "Rules : -c must be between 1 and 9. -s must be between 4 and 20"
+      exit 0 #exits with no error
+      ;;
+  esac
+  case $1 in
     -c | --count ) shift #sets the count command
       if [[ $1 -lt 1 ]]; then #range checking
         echo "Must Enter a number between 1 and 9" > /dev/stderr
@@ -32,13 +39,7 @@ while [ $count -gt 0 ]; do #loop
       sides=$2
       ;;
   esac
-  case $3 in
-    -h | --help ) #sets the help command
-      echo "Options : -c N or --count N sets the number of dice. -s N or --side N sets the sides of dice. Default is 2 Dice with 6 Sides"
-      echo "Rules : -c must be between 1 and 9. -s must be between 4 and 20"
-      exit 0 #exits with no error
-      ;;
-  esac
+
   shift
   #Rolls the dice!
     roll=$(( $RANDOM % $sides +1 ))
