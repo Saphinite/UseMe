@@ -27,16 +27,16 @@ while [ $count -gt 0 ]; do #loop
       count=$1
       ;;
   esac
-  case $2 in
+  case $1 in
     -s | --sides ) shift #sets the sides command
-    if [[ $2 -lt 4 ]]; then #range checking
+    if [[ $1 -lt 4 ]]; then #range checking
       echo "Must Enter a number between 4 and 20" > /dev/stderr
       exit 1
-    elif [[ $2 -gt 20 ]]; then #range checking
+    elif [[ $1 -gt 20 ]]; then #range checking
       echo "Must Enter a number between 4 and 20" > /dev/stderr
       exit 1 #exits with an error
     fi
-      sides=$2
+      sides=$1
       ;;
   esac
 
